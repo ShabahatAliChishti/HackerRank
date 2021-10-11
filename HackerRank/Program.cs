@@ -10,48 +10,62 @@ namespace HackerRank
     {
         static void Main(string[] args)
         {
-            //Insert Node at the Tail of a Linked List
-
+            //Print linked list
 
         }
-        static SinglyLinkedListNode  insertNodeAtTail(SinglyLinkedListNode head,int data,int position)
+        static void printLinkedList(SinglyLinkedListNode head)
         {
-            //initialize node on singly linked list with data 
-            SinglyLinkedListNode node = new SinglyLinkedListNode(data);
-          
-            //advance the currentnode until we get to the node that is right before the position what we want to insert node at
-            if(head==null)
+            //first thing we look at
+            SinglyLinkedListNode node = head;
+            //jb tk node null ni hojati jb tk chalao q ke usky bd humaray pass koi data ni hoga print honay ko
+            while(node!=null)
             {
-                return node;
+                Console.WriteLine(node.data);
+                //shift our node
+                node = node.next;
             }
-            else
-            {
-                //currentnode ki inialization head se hogi na
-                var currentNode = head;
-                //humaain next jb tk chalana hai jb tk akhiri node null ni miljati
-                while(currentNode.next!=null)
-                {
-                    currentNode = currentNode.next;
-                }
-                //jb mil gayi node null tou us null ki jga humain apna data dalna hai means apni node
-                currentNode.next = node;
 
-
-            }
+            
             //because head modified hojayega jb hum null ki jga value insert krdengy node ki apny
-            return head;
+         
         }
         public class SinglyLinkedListNode
         {
             public int data;
             public SinglyLinkedListNode next;
 
-           public SinglyLinkedListNode(int data)
+            public SinglyLinkedListNode(int data)
             {
                 this.data = data;
+                this.next = null;
             }
 
+
         }
-       
+        class SinglyLinkedList
+        {
+            public SinglyLinkedListNode head;
+            public SinglyLinkedListNode tail;
+
+            public SinglyLinkedList()
+            {
+                this.head = null;
+                this.tail = null;
+            }
+            public void InsertNode(int nodeData)
+            {
+                SinglyLinkedListNode node = new SinglyLinkedListNode(nodeData);
+                if (this.head == null)
+                {
+                    this.head = node;
+
+                }
+                else
+                {
+                    this.tail.next = node;
+                }
+            }
+        }
+
     }
 }
