@@ -10,62 +10,30 @@ namespace HackerRank
     {
         static void Main(string[] args)
         {
-            //Print linked list
+            string str = "interview";
 
-        }
-        static void printLinkedList(SinglyLinkedListNode head)
-        {
-            //first thing we look at
-            SinglyLinkedListNode node = head;
-            //jb tk node null ni hojati jb tk chalao q ke usky bd humaray pass koi data ni hoga print honay ko
-            while(node!=null)
+            Dictionary<char, int> charCount = new Dictionary<char, int>();
+
+            foreach(var character in str)
             {
-                Console.WriteLine(node.data);
-                //shift our node
-                node = node.next;
-            }
+                if (character !=' ')
 
-            
-            //because head modified hojayega jb hum null ki jga value insert krdengy node ki apny
-         
-        }
-        public class SinglyLinkedListNode
-        {
-            public int data;
-            public SinglyLinkedListNode next;
-
-            public SinglyLinkedListNode(int data)
-            {
-                this.data = data;
-                this.next = null;
-            }
-
-
-        }
-        class SinglyLinkedList
-        {
-            public SinglyLinkedListNode head;
-            public SinglyLinkedListNode tail;
-
-            public SinglyLinkedList()
-            {
-                this.head = null;
-                this.tail = null;
-            }
-            public void InsertNode(int nodeData)
-            {
-                SinglyLinkedListNode node = new SinglyLinkedListNode(nodeData);
-                if (this.head == null)
                 {
-                    this.head = node;
-
-                }
-                else
-                {
-                    this.tail.next = node;
+                    if (!charCount.ContainsKey(character))
+                        {
+                        charCount.Add(character, 1);
+                    }
+                    else
+                    {
+                        charCount[character]++;
+                    }
                 }
             }
-        }
+            foreach(var character in charCount)
+            {
+                Console.WriteLine("{0}-{1}", character.Key, character.Value);
+            }
 
+        }
     }
 }
