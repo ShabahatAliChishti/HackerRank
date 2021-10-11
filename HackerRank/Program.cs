@@ -10,18 +10,30 @@ namespace HackerRank
     {
         static void Main(string[] args)
         {
-            //complete the function solvemefirst to compute the sum of two integeres.
-            //sample input a=2 and b=3
-            //sample output 5
-            int val1 = Convert.ToInt32(Console.ReadLine());
-            int val2 = Convert.ToInt32(Console.ReadLine());
+            //Calculate and print the sum of the elements in an array.keeping in mind that some of those integeres may a quite large.
+            //input format :the first line of the input consists of an integer n.
+            //the next line contains n space-spearated integers contained in the array
+            //output:print the sum of the elements in the array
+            //Sample input:
+            //5 
+            //10000001 10000002 1000000003 1000000004 100000005
 
-            Console.WriteLine(solvemeFirst(val1, val2));
+            //output:500000015
+            long []ar;
+            ar = new long[] { 1000000001, 1000000002, 1000000003 };
+
+            Console.WriteLine(averyBigSum(ar));
+
 
         }
-        static int solvemeFirst(int a,int b)
+        static long  averyBigSum(long[] ar)
         {
-            return a + b;
+            long sum = 0;
+          for(int i=0;i<ar.Length;i++)
+            {
+                sum += ar[i];
+            }
+            return sum;
         }
        
     }
