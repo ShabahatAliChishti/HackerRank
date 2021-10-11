@@ -10,27 +10,23 @@ namespace HackerRank
     {
         static void Main(string[] args)
         {
-            //Minmax sum problem
-            //getting array of integers that are between 1 and  10 to the 9th and our job is to figure the minimum value that we can make with four elements and the 
-            //maximum sum  that we can make with any four elements each element only used once so one thing i failed to mention was that our array is guaranteed to only have five elements in it and the end we'll be outputing to the console the minimm value and the maximum value
+            //number find krna hai list me exist krta hai tou YES return krna hai wrna No
+            var testCases = new List<Tuple<List<int>, int>>();
+            var numbers = new List<int> { 1, 5, 8, 4, 9, 11, 4 };
+            testCases.Add(new Tuple<List<int>, int>(numbers, 5));
+            testCases.Add(new Tuple<List<int>, int>(numbers, 2));
+            testCases.Add(new Tuple<List<int>, int>(numbers, 4));
 
-            //    to achieveing this
-            //    steps:
-            //    1)Sort the array from least to greatest q ke pehli 4 value smallest hongi tou unka sum jo hoga woh  smallest possible sum hoga or phr last 4 values degi greatest  possible sum
-            //        so in order to sort this we use array sort library
-            //}
+            foreach (var testCase in testCases)
+            {
+                Console.WriteLine(findNumber(testCase.Item1,testCase.Item2));
+            }
 
-            int[] arr = Array.ConvertAll(Console.ReadLine().Split(' '),
-                arrTemp => Convert.ToInt32(arrTemp));
-            miniMaxSum(arr);
+
         }
-        static void miniMaxSum(int[]arr)
+      static string findNumber(List<int> arr,int k)
         {
-            //sort array
-            Array.Sort(arr);
-            long min = arr.Take(4).Sum(item => (long)item);
-            long max = arr.Skip(1).Sum(item => (long)item);
-            Console.WriteLine($"{max} {min} ");
+            return arr.Any(element => element == k) ? "YES" : "NO";
         }
 
     }
