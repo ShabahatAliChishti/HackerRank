@@ -10,30 +10,35 @@ namespace HackerRank
     {
         static void Main(string[] args)
         {
-           //insert a node at a specific position in a linked list
-           //Q:given some data  and will be given position and so they expect us to make a node with the data and then insert into our linkedlist at the given desire position
+            //Insert Node at the Tail of a Linked List
 
 
         }
-        static SinglyLinkedListNode  insertNodeAtPosition(SinglyLinkedListNode head,int data,int position)
+        static SinglyLinkedListNode  insertNodeAtTail(SinglyLinkedListNode head,int data,int position)
         {
             //initialize node on singly linked list with data 
             SinglyLinkedListNode node = new SinglyLinkedListNode(data);
-            //to look at every single node that's called current node and it starting with head
-            SinglyLinkedListNode currentNode = head;
+          
             //advance the currentnode until we get to the node that is right before the position what we want to insert node at
             if(head==null)
             {
                 return node;
             }
-            for(int i=0;i<position-1;i++)
+            else
             {
-                //iterating towards next node and set that node into currentnode
-                currentNode = currentNode.next;
+                //currentnode ki inialization head se hogi na
+                var currentNode = head;
+                //humaain next jb tk chalana hai jb tk akhiri node null ni miljati
+                while(currentNode.next!=null)
+                {
+                    currentNode = currentNode.next;
+                }
+                //jb mil gayi node null tou us null ki jga humain apna data dalna hai means apni node
+                currentNode.next = node;
+
+
             }
-            //for change references we have to remember we have to do that at specific order so before we can remove the reference from current node we have to say node next is equal to current node and therefore we hold on that reference and we make sure it doesn't get chopped when we do the next line which is saying that the current node next is equal to node
-            node.next = currentNode.next;
-            currentNode.next = head;
+            //because head modified hojayega jb hum null ki jga value insert krdengy node ki apny
             return head;
         }
         public class SinglyLinkedListNode
