@@ -10,32 +10,19 @@ namespace HackerRank
     {
         static void Main(string[] args)
         {
-            //find the sum of its elements
-            //give an array  ar=[1,2,3]=1+2+3=6,so return 6
+            //complete the function solvemefirst to compute the sum of two integeres.
+            //sample input a=2 and b=3
+            //sample output 5
+            int val1 = Convert.ToInt32(Console.ReadLine());
+            int val2 = Convert.ToInt32(Console.ReadLine());
 
-
-            int[] ar = new int[] { 1, 2, 3 };
-            //first method by forloop
-           Console.WriteLine(dummyclass.simpleArraySum(ar));
-            //second method by linq
-            Console.WriteLine(ar.Sum());
-
-
+            Console.WriteLine(solvemeFirst(val1, val2));
 
         }
-        public  static class dummyclass
-
+        static int solvemeFirst(int a,int b)
         {
-          public  static int simpleArraySum(int[] ar)
-            {
-                int sum = 0;
-                for (int i = 0; i < ar.Length; i++)
-                {
-                    sum += ar[i];
-                }
-                return sum;
-
-            }
+            return a + b;
         }
+       
     }
 }
