@@ -11,7 +11,7 @@ namespace HackerRank
         static void Main(string[] args)
         {
 
-            //Find Occurrence of each characters
+            //print count of duplicate characters from string
             string str = "interview";
             //to store our character and occurence of that
             //i is char and 2 in int in interview string
@@ -32,7 +32,10 @@ namespace HackerRank
             }
             foreach (var character in charCount)
             {
-                Console.WriteLine("{0}-{1}", character.Key, character.Value);
+               if(character.Value>1)
+                {
+                    Console.WriteLine("{0}-{1}", character.Key, character.Value);
+                }
 
             }
             Console.ReadLine();
