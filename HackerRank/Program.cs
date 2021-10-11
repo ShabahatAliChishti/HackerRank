@@ -10,37 +10,28 @@ namespace HackerRank
     {
         static void Main(string[] args)
         {
+            //Minmax sum problem
+            //getting array of integers that are between 1 and  10 to the 9th and our job is to figure the minimum value that we can make with four elements and the 
+            //maximum sum  that we can make with any four elements each element only used once so one thing i failed to mention was that our array is guaranteed to only have five elements in it and the end we'll be outputing to the console the minimm value and the maximum value
 
-            //print count of duplicate characters from string
-            string str = "interview";
-            //to store our character and occurence of that
-            //i is char and 2 in int in interview string
-            Dictionary<char, int> charCount = new Dictionary<char, int>();
-            foreach (var character in str)
-            {
-                if (character != ' ')
-                {
-                    if (!charCount.ContainsKey(character))
-                    {
-                        charCount.Add(character, 1);
-                    }
-                    else
-                    {
-                        charCount[character]++;
-                    }
-                }
-            }
-            foreach (var character in charCount)
-            {
-               if(character.Value>1)
-                {
-                    Console.WriteLine("{0}-{1}", character.Key, character.Value);
-                }
+            //    to achieveing this
+            //    steps:
+            //    1)Sort the array from least to greatest q ke pehli 4 value smallest hongi tou unka sum jo hoga woh  smallest possible sum hoga or phr last 4 values degi greatest  possible sum
+            //        so in order to sort this we use array sort library
+            //}
 
-            }
-            Console.ReadLine();
+            int[] arr = Array.ConvertAll(Console.ReadLine().Split(' '),
+                arrTemp => Convert.ToInt32(arrTemp));
+            miniMaxSum(arr);
         }
-
+        static void miniMaxSum(int[]arr)
+        {
+            //sort array
+            Array.Sort(arr);
+            long min = arr.Take(4).Sum(item => (long)item);
+            long max = arr.Skip(1).Sum(item => (long)item);
+            Console.WriteLine($"{max} {min} ");
+        }
 
     }
 }
