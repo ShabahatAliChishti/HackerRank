@@ -22,7 +22,7 @@ namespace HackerRank
             //advance the currentnode until we get to the node that is right before the position what we want to insert node at
             if(head==null)
             {
-                return node;
+                head = node;
             }
             else
             {
